@@ -1,7 +1,11 @@
 .App {
     font-family: "Josefin Sans", sans-serif;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.5);
     min-height: 100vh;
+}
+
+.Main {
+  padding-top: 100px;
 }
 
 h5 {
