@@ -1,15 +1,37 @@
 .App {
     font-family: "Josefin Sans", sans-serif;
-    background-color: rgba(255, 255, 255, 0.5);
     min-height: 100vh;
+    background-image: url('assets/wallpaper1.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    color: white; 
+    z-index: 0;
+    
+}
+
+.App::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(160, 196, 255, 0.15);
+  z-index: 1;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .Main {
   padding-top: 100px;
+  position: relative;
+  z-index: 2;
 }
 
 .Content {
-  background-color: #ffffff;
+  background-color: #ff686b;;
   padding: 10px;
   border-radius: 2px;
   border: 1px solid #dadadf;
