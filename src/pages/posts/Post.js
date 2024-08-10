@@ -4,6 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Post = (props) => {
   const {
@@ -13,7 +14,7 @@ const Post = (props) => {
     profile_image,
     comments_count,
     like_count,
-    like_id,
+    Reaction_id,
     title,
     content,
     image,
@@ -23,10 +24,55 @@ const Post = (props) => {
     cute_count,
     celebrate_count,
     postPage,
+    setPosts,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+
+  const handleReaction = async (reactionType) => {
+    try {
+      const { data } = await axiosRes.post("/reactions/", {
+        post: id,
+        reaction_type: reactionType,
+      });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? {
+                ...post,
+                [`${reactionType}_count`]: post[`${reactionType}_count`] + 1,
+                [`${reactionType}_Reaction_id`]: data.id,
+              }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUndoReaction = async (reactionType) => {
+    try {
+      const reactionId = props[`${reactionType}_Reaction_id`];
+      await axiosRes.delete(`/reactions/${reactionId}/`);
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? {
+                ...post,
+                [`${reactionType}_count`]: post[`${reactionType}_count`] - 1,
+                [`${reactionType}_Reaction_id`]: null,
+              }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <Card className={styles.Post}>
@@ -56,12 +102,12 @@ const Post = (props) => {
             >
               <i className="fa-regular fa-thumbs-up" />
             </OverlayTrigger>
-          ) : like_id ? (
-            <span onClick={() => { }}>
+          ) : props.like_Reaction_id ? (
+            <span onClick={() => handleUndoReaction('like')}>
               <i className={`fa-regular fa-thumbs-up ${styles.Like}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={() => { }}>
+            <span onClick={() => handleReaction('like')}>
               <i className={`fa-regular fa-thumbs-up ${styles.Likeoutline}`} />
             </span>
           ) : (
@@ -81,12 +127,12 @@ const Post = (props) => {
             >
               <i className="fa-regular fa-face-grin-squint-tears" />
             </OverlayTrigger>
-          ) : like_id ? (
-            <span onClick={() => { }}>
+          ) : props.funny_Reaction_id ? (
+            <span onClick={() => handleUndoReaction('funny')}>
               <i className={`fa-regular fa-face-grin-squint-tears ${styles.Like}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={() => { }}>
+            <span onClick={() => handleReaction('funny')}>
               <i className={`fa-regular fa-face-grin-squint-tears ${styles.Likeoutline}`} />
             </span>
           ) : (
@@ -106,12 +152,12 @@ const Post = (props) => {
             >
               <i className="fa-regular fa-face-frown-open" />
             </OverlayTrigger>
-          ) : like_id ? (
-            <span onClick={() => { }}>
+          ) : props.sad_Reaction_id ? (
+            <span onClick={() => handleUndoReaction('sad')}>
               <i className={`fa-regular fa-face-frown-open ${styles.Like}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={() => { }}>
+            <span onClick={() => handleReaction('sad')}>
               <i className={`fa-regular fa-face-frown-open ${styles.Likeoutline}`} />
             </span>
           ) : (
@@ -119,7 +165,7 @@ const Post = (props) => {
               placement="top"
               overlay={<Tooltip>You can't react to your own posts!</Tooltip>}
             >
-              <i className="fa-regular fa-face-frown-opens" />
+              <i className="fa-regular fa-face-frown-open" />
             </OverlayTrigger>
           )}
           {sad_count}
@@ -131,12 +177,12 @@ const Post = (props) => {
             >
               <i className="far fa-grin-hearts" />
             </OverlayTrigger>
-          ) : like_id ? (
-            <span onClick={() => { }}>
+          ) : props.cute_Reaction_id ? (
+            <span onClick={() => handleUndoReaction('cute')}>
               <i className={`far fa-grin-hearts ${styles.Like}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={() => { }}>
+            <span onClick={() => handleReaction('cute')}>
               <i className={`far fa-grin-hearts ${styles.Likeoutline}`} />
             </span>
           ) : (
@@ -156,12 +202,12 @@ const Post = (props) => {
             >
               <i className="fa-solid fa-hands-clapping" />
             </OverlayTrigger>
-          ) : like_id ? (
-            <span onClick={() => { }}>
+          ) : props.celebrate_Reaction_id ? (
+            <span onClick={() => handleUndoReaction('celebrate')}>
               <i className={`fa-solid fa-hands-clapping ${styles.Like}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={() => { }}>
+            <span onClick={() => handleReaction('celebrate')}>
               <i className={`fa-solid fa-hands-clapping ${styles.Likeoutline}`} />
             </span>
           ) : (
