@@ -40,8 +40,8 @@ const NavBar = () => {
       <NavLink
       className={styles.NavLink}
       activeClassName={styles.Active}
-      to="/saved" >
-      <i className='fa-solid fa-bookmark'></i> Saved</NavLink>
+      to="/liked" >
+      <i className='fa-regular fa-thumbs-up'></i> Liked</NavLink>
 
       <NavLink
       className={styles.NavLink}

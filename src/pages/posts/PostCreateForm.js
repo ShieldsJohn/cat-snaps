@@ -39,13 +39,22 @@ function PostCreateForm() {
 
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
-      URL.revokeObjectURL(image);
-      setPostData({
-        ...postData,
-        image: URL.createObjectURL(event.target.files[0]),
-      });
+      const file = event.target.files[0];
+
+      // Check if file size exceeds 2MB (2 * 1024 * 1024 bytes)
+      if (file.size > 2 * 1024 * 1024) {
+        setErrors({ image: ["Image size should be less than 2MB"] });
+        setPostData({ ...postData, image: "" }); // Clear the image preview
+      } else {
+        setErrors({}); // Clear any previous errors
+        setPostData({
+          ...postData,
+          image: URL.createObjectURL(file),
+        });
+      }
     }
   };
+
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -55,7 +64,7 @@ function PostCreateForm() {
     formData.append('content', content)
     formData.append('image', imageInput.current.files[0])
     try {
-      const {data} = await axiosReq.post('/posts/', formData)
+      const { data } = await axiosReq.post('/posts/', formData)
       history.push(`/posts/${data.id}`)
     } catch (err) {
       console.log('Error creating post:', err);
@@ -88,7 +97,7 @@ function PostCreateForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Content</Form.Label>
+        <Form.Label>Caption</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
@@ -148,7 +157,11 @@ function PostCreateForm() {
                   />
                 </Form.Label>
               )}
-
+              {errors?.image?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                  {message}
+                </Alert>
+              ))}
               <Form.File
                 id="image-upload"
                 accept="image/*"
