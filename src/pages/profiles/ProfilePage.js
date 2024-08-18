@@ -24,6 +24,20 @@ import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import { FaInstagram, FaXTwitter, FaFacebook, FaYoutube, FaTiktok, FaSnapchat } from 'react-icons/fa6';
+import { AiOutlineLink } from 'react-icons/ai';
+
+const getSocialIcon = (url) => {
+  if (url.includes('instagram.com')) return <FaInstagram size={30} className="mx-2" />;
+  if (url.includes('twitter.com') || url.includes('x.com')) return <FaXTwitter size={30} className="mx-2" />;
+  if (url.includes('facebook.com')) return <FaFacebook size={30} className="mx-2" />;
+  if (url.includes('youtube.com')) return <FaYoutube size={30} className="mx-2" />;
+  if (url.includes('tiktok.com')) return <FaTiktok size={30} className="mx-2" />;
+  if (url.includes('snapchat.com')) return <FaSnapchat size={30} className="mx-2" />;
+
+  // Default icon for unrecognised links
+  return <AiOutlineLink size={30} className="mx-2" />; 
+};
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -86,6 +100,18 @@ function ProfilePage() {
               <div>following</div>
             </Col>
           </Row>
+          <div className="d-flex justify-content-center">
+            {profile?.social_media_link1 && (
+              <a href={profile.social_media_link1} target="_blank" rel="noopener noreferrer">
+                {getSocialIcon(profile.social_media_link1)}
+              </a>
+            )}
+            {profile?.social_media_link2 && (
+              <a href={profile.social_media_link2} target="_blank" rel="noopener noreferrer">
+                {getSocialIcon(profile.social_media_link2)}
+              </a>
+            )}
+          </div>
         </Col>
         <Col lg={3} className="text-lg-right">
           {currentUser &&

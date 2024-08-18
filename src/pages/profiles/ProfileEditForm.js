@@ -29,8 +29,10 @@ const ProfileEditForm = () => {
     name: "",
     content: "",
     image: "",
+    social_media_link1: "",
+    social_media_link2: "",
   });
-  const { name, content, image } = profileData;
+  const { name, content, image, social_media_link1, social_media_link2 } = profileData;
 
   const [errors, setErrors] = useState({});
 
@@ -39,8 +41,8 @@ const ProfileEditForm = () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
-          const { name, content, image } = data;
-          setProfileData({ name, content, image });
+          const { name, content, image, social_media_link1, social_media_link2 } = data;
+          setProfileData({ name, content, image, social_media_link1, social_media_link2 });
         } catch (err) {
           console.log(err);
           history.push("/");
@@ -65,6 +67,8 @@ const ProfileEditForm = () => {
     const formData = new FormData();
     formData.append("name", name);
     formData.append("content", content);
+    formData.append("social_media_link1", social_media_link1);
+    formData.append("social_media_link2", social_media_link2);
 
     if (imageFile?.current?.files[0]) {
       formData.append("image", imageFile?.current?.files[0]);
@@ -93,6 +97,26 @@ const ProfileEditForm = () => {
           onChange={handleChange}
           name="content"
           rows={7}
+        />
+      </Form.Group>
+
+      <Form.Group>
+        <Form.Label>Social Media Link 1</Form.Label>
+        <Form.Control
+          type="url"
+          value={social_media_link1}
+          onChange={handleChange}
+          name="social_media_link1"
+        />
+      </Form.Group>
+
+      <Form.Group>
+        <Form.Label>Social Media Link 2</Form.Label>
+        <Form.Control
+          type="url"
+          value={social_media_link2}
+          onChange={handleChange}
+          name="social_media_link2"
         />
       </Form.Group>
 
