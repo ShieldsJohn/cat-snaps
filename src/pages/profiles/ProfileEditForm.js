@@ -27,12 +27,12 @@ const ProfileEditForm = () => {
 
   const [profileData, setProfileData] = useState({
     name: "",
-    content: "",
+    bio: "",
     image: "",
     social_media_link1: "",
     social_media_link2: "",
   });
-  const { name, content, image, social_media_link1, social_media_link2 } = profileData;
+  const { name, bio, image, social_media_link1, social_media_link2 } = profileData;
 
   const [errors, setErrors] = useState({});
 
@@ -41,8 +41,8 @@ const ProfileEditForm = () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
-          const { name, content, image, social_media_link1, social_media_link2 } = data;
-          setProfileData({ name, content, image, social_media_link1, social_media_link2 });
+          const { name, bio, image, social_media_link1, social_media_link2 } = data;
+          setProfileData({ name, bio, image, social_media_link1, social_media_link2 });
         } catch (err) {
           console.log(err);
           history.push("/");
@@ -66,7 +66,7 @@ const ProfileEditForm = () => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("name", name);
-    formData.append("content", content);
+    formData.append("bio", bio);
     formData.append("social_media_link1", social_media_link1);
     formData.append("social_media_link2", social_media_link2);
 
@@ -93,9 +93,9 @@ const ProfileEditForm = () => {
         <Form.Label>Bio</Form.Label>
         <Form.Control
           as="textarea"
-          value={content}
+          value={bio}
           onChange={handleChange}
-          name="content"
+          name="bio"
           rows={7}
         />
       </Form.Group>

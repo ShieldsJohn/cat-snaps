@@ -28,15 +28,15 @@ import { FaInstagram, FaXTwitter, FaFacebook, FaYoutube, FaTiktok, FaSnapchat } 
 import { AiOutlineLink } from 'react-icons/ai';
 
 const getSocialIcon = (url) => {
-  if (url.includes('instagram.com')) return <FaInstagram size={30} className="mx-2" />;
-  if (url.includes('twitter.com') || url.includes('x.com')) return <FaXTwitter size={30} className="mx-2" />;
-  if (url.includes('facebook.com')) return <FaFacebook size={30} className="mx-2" />;
-  if (url.includes('youtube.com')) return <FaYoutube size={30} className="mx-2" />;
-  if (url.includes('tiktok.com')) return <FaTiktok size={30} className="mx-2" />;
-  if (url.includes('snapchat.com')) return <FaSnapchat size={30} className="mx-2" />;
+  if (url.includes('instagram.com')) return <FaInstagram size={25} className="mx-2" />;
+  if (url.includes('twitter.com') || url.includes('x.com')) return <FaXTwitter size={25} className="mx-2" />;
+  if (url.includes('facebook.com')) return <FaFacebook size={25} className="mx-2" />;
+  if (url.includes('youtube.com')) return <FaYoutube size={25} className="mx-2" />;
+  if (url.includes('tiktok.com')) return <FaTiktok size={25} className="mx-2" />;
+  if (url.includes('snapchat.com')) return <FaSnapchat size={25} className="mx-2" />;
 
   // Default icon for unrecognised links
-  return <AiOutlineLink size={30} className="mx-2" />; 
+  return <AiOutlineLink size={30} className="mx-2" />;
 };
 
 function ProfilePage() {
@@ -65,6 +65,7 @@ function ProfilePage() {
           pageProfile: { results: [pageProfile] },
         }));
         setProfilePosts(profilePosts);
+        console.log(pageProfile);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -100,18 +101,7 @@ function ProfilePage() {
               <div>following</div>
             </Col>
           </Row>
-          <div className="d-flex justify-content-center">
-            {profile?.social_media_link1 && (
-              <a href={profile.social_media_link1} target="_blank" rel="noopener noreferrer">
-                {getSocialIcon(profile.social_media_link1)}
-              </a>
-            )}
-            {profile?.social_media_link2 && (
-              <a href={profile.social_media_link2} target="_blank" rel="noopener noreferrer">
-                {getSocialIcon(profile.social_media_link2)}
-              </a>
-            )}
-          </div>
+
         </Col>
         <Col lg={3} className="text-lg-right">
           {currentUser &&
@@ -132,8 +122,21 @@ function ProfilePage() {
               </Button>
             ))}
         </Col>
-        {profile?.content && <Col className="p-3">{profile.content}</Col>}
+        {profile?.bio && <Col className="p-3">{profile.bio}</Col>}
       </Row>
+      <p></p>
+      <div className="d-flex justify-content-center">
+        {profile?.social_media_link1 && (
+          <a href={profile.social_media_link1} target="_blank" rel="noopener noreferrer">
+            {getSocialIcon(profile.social_media_link1)}
+          </a>
+        )}
+        {profile?.social_media_link2 && (
+          <a href={profile.social_media_link2} target="_blank" rel="noopener noreferrer">
+            {getSocialIcon(profile.social_media_link2)}
+          </a>
+        )}
+      </div>
     </>
   );
 
