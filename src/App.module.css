@@ -1,14 +1,7 @@
 .App {
     font-family: "Josefin Sans", sans-serif;
     min-height: 100vh;
-    background-image: url('assets/wallpaper1.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    color: black; 
-    z-index: 0;
-    
+    position:relative;
 }
 
 .App::after {
@@ -21,7 +14,35 @@
   background: rgb(247, 248, 250, 0.75);
   z-index: 1;
   pointer-events: none;
-  z-index: 1;
+}
+
+.BackgroundContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+.BackgroundContainer::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('assets/wallpaper1.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -2;
+}
+
+.BackgroundOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(247, 248, 250, 0.25);
+  z-index: -1;
 }
 
 /*.App.liked-page, .App.root-page {

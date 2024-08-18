@@ -22,6 +22,8 @@ function App() {
   return (
     <div className={styles.App}>
       <NavBar />
+      <div className={styles.BackgroundContainer}>
+      <div className={styles.BackgroundOverlay}></div>
       <Container className={styles.Main}>
         <Switch>
           <Route exact path="/" render={() => <PostsPage message="No results found.  Adjust the search keyword." />} />
@@ -41,6 +43,7 @@ function App() {
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
+      </div>
     </div>
 
   );
