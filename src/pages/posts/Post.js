@@ -16,7 +16,6 @@ const Post = (props) => {
     profile_image,
     comments_count,
     like_count,
-    Reaction_id,
     title,
     caption,
     image,
@@ -132,7 +131,7 @@ const Post = (props) => {
           ) : (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't react to your own posts!</Tooltip>}
+              overlay={<Tooltip>You need to log in to react to posts!</Tooltip>}
             >
               <i className="fa-regular fa-thumbs-up" />
             </OverlayTrigger>
@@ -157,7 +156,7 @@ const Post = (props) => {
           ) : (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't react to your own posts!</Tooltip>}
+              overlay={<Tooltip>You need to log in to react to posts!</Tooltip>}
             >
               <i className="fa-regular fa-face-grin-squint-tears" />
             </OverlayTrigger>
@@ -182,7 +181,7 @@ const Post = (props) => {
           ) : (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't react to your own posts!</Tooltip>}
+              overlay={<Tooltip>You need to log in to react to posts!</Tooltip>}
             >
               <i className="fa-regular fa-face-frown-open" />
             </OverlayTrigger>
@@ -207,7 +206,7 @@ const Post = (props) => {
           ) : (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't react to your own posts!</Tooltip>}
+              overlay={<Tooltip>You need to log in to react to posts!</Tooltip>}
             >
               <i className="far fa-grin-hearts" />
             </OverlayTrigger>
@@ -232,7 +231,7 @@ const Post = (props) => {
           ) : (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't react to your own posts!</Tooltip>}
+              overlay={<Tooltip>You need to log in to react to posts!</Tooltip>}
             >
               <i className="fa-solid fa-hands-clapping" />
             </OverlayTrigger>
