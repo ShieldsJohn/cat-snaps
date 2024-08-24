@@ -5,28 +5,33 @@ import Asset from "../../components/Asset";
 import { useProfileData } from "../../contexts/ProfileDataContext";
 import Profile from "./Profile";
 
-const PopularProfiles = ({ mobile }) => {
-  const { popularProfiles } = useProfileData();
+const NewProfiles = ({ mobile }) => {
+  const { newProfiles } = useProfileData();
+
+  const profilesToShow = mobile ? newProfiles.results.slice(0, 4) : newProfiles.results.slice(0, 5);
+
 
   return (
     <Container
-      className={`${appStyles.Profiles} ${
-        mobile && "d-lg-none text-center mb-3"
+      className={`${appStyles.NewUsers} ${
+        mobile ? "d-lg-none text-center mb-3" : "d-none d-lg-block mb-3"
       }`}
     >
-      {popularProfiles.results.length ? (
+      {newProfiles.results.length ? (
         <>
-          <p><strong>Most Followed Users</strong></p>
+          <p><strong>New Users</strong></p>
           {mobile ? (
             <div className="d-flex justify-content-around">
-              {popularProfiles.results.slice(0, 4).map((profile) => (
+              {profilesToShow.map((profile) => (
                 <Profile key={profile.id} profile={profile} mobile />
               ))}
             </div>
           ) : (
-            popularProfiles.results.map((profile) => (
+            <div>
+            {profilesToShow.map((profile) => (
               <Profile key={profile.id} profile={profile} />
-            ))
+            ))}
+            </div>
           )}
         </>
       ) : (
@@ -36,4 +41,4 @@ const PopularProfiles = ({ mobile }) => {
   );
 };
 
-export default PopularProfiles;
+export default NewProfiles;

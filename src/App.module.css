@@ -52,17 +52,27 @@
 }
 
 .Content {
-  background-color: #ff686b;;
+  background-color: #ff686b;
   padding: 10px;
   border-radius: 25px;
   border: 1px solid #ff686b;
 }
 
-.Profiles {
-  background-color: #a0c4ff;;
+.NewUsers {
+  margin-top: 10px;
+  background-color: #a0c4ff;
   padding: 10px;
   border-radius: 25px;
   border: 1px solid #a0c4ff;
+  text-align: center;
+}
+
+.Profiles {
+  background-color: #84dcc6;
+  padding: 10px;
+  border-radius: 25px;
+  border: 1px solid #84dcc6;
+  text-align: center;
 }
 
 .FillerImage {

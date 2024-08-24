@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { followHelper, unfollowHelper } from "../utils/utils";
@@ -11,9 +11,9 @@ export const useSetProfileData = () => useContext(SetProfileDataContext);
 
 export const ProfileDataProvider = ({ children }) => {
   const [profileData, setProfileData] = useState({
-   
     pageProfile: { results: [] },
     popularProfiles: { results: [] },
+    newProfiles: { results: [] }, // Add new state for new profiles
   });
 
   const currentUser = useCurrentUser();
@@ -34,6 +34,12 @@ export const ProfileDataProvider = ({ children }) => {
         popularProfiles: {
           ...prevState.popularProfiles,
           results: prevState.popularProfiles.results.map((profile) =>
+            followHelper(profile, clickedProfile, data.id)
+          ),
+        },
+        newProfiles: {
+          ...prevState.newProfiles,
+          results: prevState.newProfiles.results.map((profile) =>
             followHelper(profile, clickedProfile, data.id)
           ),
         },
@@ -60,6 +66,12 @@ export const ProfileDataProvider = ({ children }) => {
             unfollowHelper(profile, clickedProfile)
           ),
         },
+        newProfiles: {
+          ...prevState.newProfiles,
+          results: prevState.newProfiles.results.map((profile) =>
+            unfollowHelper(profile, clickedProfile)
+          ),
+        },
       }));
     } catch (err) {
       console.log(err);
@@ -69,12 +81,22 @@ export const ProfileDataProvider = ({ children }) => {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const { data } = await axiosReq.get(
+        // Fetch popular profiles
+        const { data: popularData } = await axiosReq.get(
           "/profiles/?ordering=-followers_count"
         );
         setProfileData((prevState) => ({
           ...prevState,
-          popularProfiles: data,
+          popularProfiles: popularData,
+        }));
+
+        // Fetch new profiles (ordered by creation date)
+        const { data: newData } = await axiosReq.get(
+          "/profiles/?ordering=-created_at"
+        );
+        setProfileData((prevState) => ({
+          ...prevState,
+          newProfiles: newData,
         }));
       } catch (err) {
         console.log(err);
