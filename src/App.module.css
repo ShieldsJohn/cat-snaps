@@ -45,14 +45,6 @@
   z-index: -1;
 }
 
-/*.App.liked-page, .App.root-page {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-}
-*/
-
 .Main {
   padding-top: 100px;
   position: relative;

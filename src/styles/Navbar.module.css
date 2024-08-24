@@ -5,9 +5,65 @@
 }
 
 .NavLink {
+    display: flex;
+    align-items: center;
     padding: 5px;
-  }
-  
-.Active i {
-    color: #a0c4ff;
+}
+
+/* Mobile view: Show all icons and text */
+@media (max-width: 767px) {
+    .NavLink {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
+
+    /* Show text on mobile */
+    .NavLink > span {
+        display: inline; 
+    }
+}
+
+/* Tablets - Hide text but show icons */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .NavLink {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
+
+    /* Hide text on tablets */
+    .NavLink > span {
+        display: none;
+    }
+
+    .NavLink i {
+        font-size: 1.8rem;
+    }
+}
+
+/* Larger screens - Show all text and icons */
+@media (min-width: 1025px) {
+    .NavLink {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .NavLink i {
+        font-size: 1.8rem;
+    }
+}
+
+/* Ensure icons are centered */
+.NavLink.d-md-block {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+/* Ensure correct display on mobile */
+.NavLink.d-md-none {
+    display: flex; 
+    align-items: center;
 }
