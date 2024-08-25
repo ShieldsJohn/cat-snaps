@@ -7,63 +7,49 @@
 .NavLink {
     display: flex;
     align-items: center;
-    padding: 5px;
+    padding: 10px;
+    text-decoration: none;
+    color: inherit;
 }
 
-/* Mobile view: Show all icons and text */
-@media (max-width: 767px) {
-    .NavLink {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-    }
-
-    /* Show text on mobile */
-    .NavLink > span {
-        display: inline; 
-    }
-}
-
-/* Tablets - Hide text but show icons */
-@media (max-width: 1024px) and (min-width: 768px) {
-    .NavLink {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-    }
-
-    /* Hide text on tablets */
-    .NavLink > span {
-        display: none;
-    }
-
-    .NavLink i {
-        font-size: 1.8rem;
-    }
-}
-
-/* Larger screens - Show all text and icons */
-@media (min-width: 1025px) {
-    .NavLink {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-    }
-
-    .NavLink i {
-        font-size: 1.8rem;
-    }
-}
-
-/* Ensure icons are centered */
 .NavLink.d-md-block {
     display: flex;
     align-items: center;
     padding: 5px;
 }
 
-/* Ensure correct display on mobile */
 .NavLink.d-md-none {
     display: flex; 
     align-items: center;
+}
+
+/* Media queries */
+
+/* Mobile - Show all icons and text */
+@media (max-width: 767px) {
+    .NavLink > span {
+        display: inline; /* Show text on mobile */
+    }
+}
+
+/* Tablets (768px to 1023px) - Show only icons */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .NavLink > span {
+        display: none; /* Hide text on tablets */
+    }
+
+    .NavLink i {
+        font-size: 1.8rem;
+    }
+}
+
+/* Large screens (1024px and above) - Show all text and icons */
+@media (min-width: 1024px) {
+    .NavLink > span {
+        display: inline; /* Show text on larger screens */
+    }
+
+    .NavLink i {
+        font-size: 1.8rem;
+    }
 }

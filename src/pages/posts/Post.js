@@ -238,7 +238,7 @@ const Post = (props) => {
           )}
           {celebrate_count}
 
-          <Link to={`/posts/${id}`}>
+          <Link aria-label="Comments icon" to={`/posts/${id}`}>
             <i className="far fa-comments" />
           </Link>
           {comments_count}

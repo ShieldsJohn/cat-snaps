@@ -21,7 +21,8 @@
     flex-direction: column;      
     margin-bottom: 15px;         
     width: 100%;                 
-    max-width: 500px;            
+    max-width: 500px;
+    border-radius: 25px;          
 }
 
 .form-group label {
@@ -35,15 +36,19 @@
 .input {
     background: #ffffff;
     border: 2px solid #f0f1f9;
+    border-radius: 25px;
     width: 100%;                 
     color: #7177a1;
     padding: 10px;
-    box-sizing: border-box;      
+    box-sizing: border-box;
+    margin-bottom: 10px;   
 }
 
 .messageBox {
     width: 100%;                 
     box-sizing: border-box;  
+    margin-bottom: 10px;
+    border-radius: 25px;
 }
 
   

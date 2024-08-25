@@ -22,85 +22,114 @@ const NavBar = () => {
     }
   };
 
-  // Visible on tablet and larger
   const addPostIcon = (
     <NavLink
-      className={`${styles.NavLink} d-none d-md-block`}
+      className={`${styles.NavLink} d-none d-md-flex align-items-center`}
       activeClassName={styles.Active}
       to="/posts/create"
     >
-      <i className='fas fa-plus-square'></i> <span className="d-lg-inline d-none">Post</span>
+      <i className='fas fa-plus-square'></i>
+      <span className="d-lg-inline d-none">Post</span>
     </NavLink>
   );
 
-  // Visible only on mobile
   const addPostIconMobile = (
     <NavLink
-      className={`${styles.NavLink} d-md-none`} 
+      className={`${styles.NavLink} d-md-none`}
       activeClassName={styles.Active}
       to="/posts/create"
     >
-      <i className='fas fa-plus-square'></i> <span>Post</span>
+      <i className='fas fa-plus-square'></i>
+      <span>Post</span>
     </NavLink>
   );
 
-  // Visible on tablet and larger
   const contactIcon = (
     <NavLink
-      className={`${styles.NavLink} d-none d-md-block`}
+      className={`${styles.NavLink} d-none d-md-flex align-items-center`}
       activeClassName={styles.Active}
       to="/contact"
     >
-      <i className='fas fa-envelope'></i> <span className="d-lg-inline d-none">Contact</span>
+      <i className='fas fa-envelope'></i>
+      <span className="d-lg-inline d-none">Contact</span>
     </NavLink>
   );
 
-  // Visible only on mobile
   const contactIconMobile = (
     <NavLink
-      className={`${styles.NavLink} d-md-none`} 
+      className={`${styles.NavLink} d-md-none`}
       activeClassName={styles.Active}
       to="/contact"
     >
-      <i className='fas fa-envelope'></i> <span>Contact</span>
+      <i className='fas fa-envelope'></i>
+      <span>Contact</span>
     </NavLink>
   );
 
-  // Visible on tablet and larger
   const profileIcon = (
     <NavLink
-      className={`${styles.NavLink}d-md-block`}
+      className={`${styles.NavLink} d-flex align-items-center`}
       to={`/profiles/${currentUser?.profile_id}`}
     >
       <Avatar src={currentUser?.profile_image} height={40} />
-      <span>Profile</span>
+      <span className="d-inline">Profile</span>
     </NavLink>
   );
 
   const loggedInIcons = (
     <>
       <NavLink
-        className={styles.NavLink}
+        className={`${styles.NavLink} d-md-none d-flex align-items-center`}
         activeClassName={styles.Active}
         to="/feed"
       >
-        <i className='fas fa-stream'></i> <span>Feed</span>
+        <i className='fas fa-stream'></i>
+        <span>Feed</span>
       </NavLink>
 
       <NavLink
-        className={styles.NavLink}
+        className={`${styles.NavLink} d-none d-md-flex align-items-center`}
+        activeClassName={styles.Active}
+        to="/feed"
+      >
+        <i className='fas fa-stream'></i>
+        <span className="d-lg-inline d-none">Feed</span>
+      </NavLink>
+
+      <NavLink
+        className={`${styles.NavLink} d-md-none d-flex align-items-center`}
         activeClassName={styles.Active}
         to="/reactions"
       >
-        <i className='far fa-grin-hearts'></i> <span>Reactions</span>
+        <i className='far fa-grin-hearts'></i>
+        <span>Reactions</span>
       </NavLink>
 
       <NavLink
-        className={styles.NavLink}
+        className={`${styles.NavLink} d-none d-md-flex align-items-center`}
+        activeClassName={styles.Active}
+        to="/reactions"
+      >
+        <i className='far fa-grin-hearts'></i>
+        <span className="d-lg-inline d-none">Reactions</span>
+      </NavLink>
+
+      <NavLink
+        className={`${styles.NavLink} d-md-none d-flex align-items-center`}
         to="/"
         onClick={handleSignOut}
       >
-        <i className='fas fa-sign-out-alt'></i> <span>Sign out</span>
+        <i className='fas fa-sign-out-alt'></i>
+        <span>Sign out</span>
+      </NavLink>
+
+      <NavLink
+        className={`${styles.NavLink} d-none d-md-flex align-items-center`}
+        to="/"
+        onClick={handleSignOut}
+      >
+        <i className='fas fa-sign-out-alt'></i>
+        <span className="d-lg-inline d-none">Sign out</span>
       </NavLink>
 
       {profileIcon}
@@ -110,19 +139,39 @@ const NavBar = () => {
   const loggedOutIcons = (
     <>
       <NavLink
-        className={styles.NavLink}
+        className={`${styles.NavLink} d-md-none d-flex align-items-center`}
         activeClassName={styles.Active}
         to="/signup"
       >
-        <i className='fas fa-user-plus'></i> <span>Sign up</span>
+        <i className='fas fa-user-plus'></i>
+        <span>Sign up</span>
       </NavLink>
 
       <NavLink
-        className={styles.NavLink}
+        className={`${styles.NavLink} d-none d-md-flex align-items-center`}
+        activeClassName={styles.Active}
+        to="/signup"
+      >
+        <i className='fas fa-user-plus'></i>
+        <span className="d-lg-inline d-none">Sign up</span>
+      </NavLink>
+
+      <NavLink
+        className={`${styles.NavLink} d-md-none d-flex align-items-center`}
         activeClassName={styles.Active}
         to="/signin"
       >
-        <i className='fas fa-sign-in'></i> <span>Sign in</span>
+        <i className='fas fa-sign-in'></i>
+        <span>Sign in</span>
+      </NavLink>
+
+      <NavLink
+        className={`${styles.NavLink} d-none d-md-flex align-items-center`}
+        activeClassName={styles.Active}
+        to="/signin"
+      >
+        <i className='fas fa-sign-in'></i>
+        <span className="d-lg-inline d-none">Sign in</span>
       </NavLink>
     </>
   );
@@ -136,20 +185,16 @@ const NavBar = () => {
           </Navbar.Brand>
         </NavLink>
 
-        {/* Show the addPostIcon in the navbar on tablet (md) and larger screens */}
         {currentUser && addPostIcon}
 
-        {/* Show the contactIcon in the navbar on tablet (md) and larger screens */}
         {contactIcon}
 
         <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
             
-            {/* Show the addPostIconMobile in the navbar dropdown on mobile */}
             {currentUser && addPostIconMobile}
 
-            {/* Show the contactIconMobile in the navbar dropdown on mobile */}
             {contactIconMobile}
 
             {currentUser ? loggedInIcons : loggedOutIcons}
