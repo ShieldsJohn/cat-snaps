@@ -24,47 +24,26 @@ const NavBar = () => {
 
   const addPostIcon = (
     <NavLink
-      className={`${styles.NavLink} d-none d-md-flex align-items-center`}
+      className={`${styles.NavLink} d-flex align-items-center`}
       activeClassName={styles.Active}
       to="/posts/create"
     >
       <i className='fas fa-plus-square'></i>
-      <span className="d-lg-inline d-none">Post</span>
-    </NavLink>
-  );
-
-  const addPostIconMobile = (
-    <NavLink
-      className={`${styles.NavLink} d-md-none`}
-      activeClassName={styles.Active}
-      to="/posts/create"
-    >
-      <i className='fas fa-plus-square'></i>
-      <span>Post</span>
+      <span className="d-inline d-md-none d-lg-inline">Post</span>
     </NavLink>
   );
 
   const contactIcon = (
     <NavLink
-      className={`${styles.NavLink} d-none d-md-flex align-items-center`}
+      className={`${styles.NavLink} d-flex align-items-center`}
       activeClassName={styles.Active}
       to="/contact"
     >
       <i className='fas fa-envelope'></i>
-      <span className="d-lg-inline d-none">Contact</span>
+      <span className="d-inline d-md-none d-lg-inline">Contact</span>
     </NavLink>
   );
 
-  const contactIconMobile = (
-    <NavLink
-      className={`${styles.NavLink} d-md-none`}
-      activeClassName={styles.Active}
-      to="/contact"
-    >
-      <i className='fas fa-envelope'></i>
-      <span>Contact</span>
-    </NavLink>
-  );
 
   const profileIcon = (
     <NavLink
@@ -72,106 +51,66 @@ const NavBar = () => {
       to={`/profiles/${currentUser?.profile_id}`}
     >
       <Avatar src={currentUser?.profile_image} height={40} />
-      <span className="d-inline">Profile</span>
+      <span className="d-inline d-lg-inline">Profile</span>
     </NavLink>
   );
 
   const loggedInIcons = (
     <>
+      {contactIcon}
+
+      {addPostIcon}
+
       <NavLink
-        className={`${styles.NavLink} d-md-none d-flex align-items-center`}
+        className={`${styles.NavLink} d-flex align-items-center`}
         activeClassName={styles.Active}
         to="/feed"
       >
         <i className='fas fa-stream'></i>
-        <span>Feed</span>
+        <span className="d-inline d-md-none d-lg-inline">Feed</span>
       </NavLink>
 
       <NavLink
-        className={`${styles.NavLink} d-none d-md-flex align-items-center`}
-        activeClassName={styles.Active}
-        to="/feed"
-      >
-        <i className='fas fa-stream'></i>
-        <span className="d-lg-inline d-none">Feed</span>
-      </NavLink>
-
-      <NavLink
-        className={`${styles.NavLink} d-md-none d-flex align-items-center`}
+        className={`${styles.NavLink} d-flex align-items-center`}
         activeClassName={styles.Active}
         to="/reactions"
       >
         <i className='far fa-grin-hearts'></i>
-        <span>Reactions</span>
+        <span className="d-inline d-md-none d-lg-inline">Reactions</span>
       </NavLink>
 
       <NavLink
-        className={`${styles.NavLink} d-none d-md-flex align-items-center`}
-        activeClassName={styles.Active}
-        to="/reactions"
-      >
-        <i className='far fa-grin-hearts'></i>
-        <span className="d-lg-inline d-none">Reactions</span>
-      </NavLink>
-
-      <NavLink
-        className={`${styles.NavLink} d-md-none d-flex align-items-center`}
+        className={`${styles.NavLink} d-flex align-items-center`}
         to="/"
         onClick={handleSignOut}
       >
         <i className='fas fa-sign-out-alt'></i>
-        <span>Sign out</span>
-      </NavLink>
-
-      <NavLink
-        className={`${styles.NavLink} d-none d-md-flex align-items-center`}
-        to="/"
-        onClick={handleSignOut}
-      >
-        <i className='fas fa-sign-out-alt'></i>
-        <span className="d-lg-inline d-none">Sign out</span>
+        <span className="d-inline d-md-none d-lg-inline">Sign out</span>
       </NavLink>
 
       {profileIcon}
     </>
   );
 
+  // Icons to be shown when user is logged out
   const loggedOutIcons = (
     <>
       <NavLink
-        className={`${styles.NavLink} d-md-none d-flex align-items-center`}
+        className={`${styles.NavLink} d-flex align-items-center`}
         activeClassName={styles.Active}
         to="/signup"
       >
         <i className='fas fa-user-plus'></i>
-        <span>Sign up</span>
+        <span className="d-inline d-md-none d-lg-inline">Sign up</span>
       </NavLink>
 
       <NavLink
-        className={`${styles.NavLink} d-none d-md-flex align-items-center`}
-        activeClassName={styles.Active}
-        to="/signup"
-      >
-        <i className='fas fa-user-plus'></i>
-        <span className="d-lg-inline d-none">Sign up</span>
-      </NavLink>
-
-      <NavLink
-        className={`${styles.NavLink} d-md-none d-flex align-items-center`}
+        className={`${styles.NavLink} d-flex align-items-center`}
         activeClassName={styles.Active}
         to="/signin"
       >
         <i className='fas fa-sign-in'></i>
-        <span>Sign in</span>
-      </NavLink>
-
-      <NavLink
-        className={`${styles.NavLink} d-none d-md-flex align-items-center`}
-        activeClassName={styles.Active}
-        to="/signin"
-      >
-        <i className='fas fa-sign-in'></i>
-        <span className="d-lg-inline d-none">Sign in</span>
+        <span className="d-inline d-md-none d-lg-inline">Sign in</span>
       </NavLink>
     </>
   );
@@ -185,18 +124,10 @@ const NavBar = () => {
           </Navbar.Brand>
         </NavLink>
 
-        {currentUser && addPostIcon}
-
-        {contactIcon}
-
         <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
-            
-            {currentUser && addPostIconMobile}
-
-            {contactIconMobile}
-
+            {/* Conditionally render logged in or logged out icons */}
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
