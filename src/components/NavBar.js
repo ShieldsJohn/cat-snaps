@@ -1,5 +1,7 @@
 import React from 'react';
-import { Navbar, Container, Nav } from "react-bootstrap";
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
 import styles from '../styles/Navbar.module.css';
 import { NavLink } from 'react-router-dom';
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
@@ -74,10 +76,10 @@ const NavBar = () => {
       <NavLink
         className={`${styles.NavLink} d-flex align-items-center`}
         activeClassName={styles.Active}
-        to="/reactions"
+        to="/likes"
       >
-        <i className='far fa-grin-hearts'></i>
-        <span className="d-inline d-md-none d-lg-inline">Reactions</span>
+        <i className='fa-regular fa-thumbs-up'></i>
+        <span className="d-inline d-md-none d-lg-inline">Likes</span>
       </NavLink>
 
       <NavLink
