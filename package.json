@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@testing-library/dom": "^10.3.1",
     "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^16.0.0",
@@ -17,8 +18,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-router-dom": "^5.3.4",
     "react-scripts": "^5.0.1",
-    "web-vitals": "^4.2.1",
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "web-vitals": "^4.2.1"
   },
   "scripts": {
     "start": "react-scripts start",

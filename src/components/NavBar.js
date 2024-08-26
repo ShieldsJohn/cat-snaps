@@ -6,6 +6,7 @@ import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContex
 import Avatar from './Avatar';
 import axios from 'axios';
 import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
+import { removeTokenTimestamp } from '../utils/utils';
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -17,6 +18,7 @@ const NavBar = () => {
     try {
       await axios.post('dj-rest-auth/logout/');
       setCurrentUser(null);
+      removeTokenTimestamp();
     } catch (err) {
       console.log(err);
     }
@@ -43,7 +45,6 @@ const NavBar = () => {
       <span className="d-inline d-md-none d-lg-inline">Contact</span>
     </NavLink>
   );
-
 
   const profileIcon = (
     <NavLink
@@ -92,7 +93,6 @@ const NavBar = () => {
     </>
   );
 
-  // Icons to be shown when user is logged out
   const loggedOutIcons = (
     <>
       <NavLink
@@ -127,7 +127,6 @@ const NavBar = () => {
         <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
-            {/* Conditionally render logged in or logged out icons */}
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
