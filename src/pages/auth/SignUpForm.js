@@ -16,45 +16,54 @@ import Alert from "react-bootstrap/Alert"
 
 import axios from "axios";
 import { useRedirect } from "../../hooks/useRedirect";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 const SignUpForm = () => {
-    useRedirect('loggedIn')
-    const [signUpData, setSignUpData] = useState({
-        username: '',
-        password1: '',
-        password2: '',
+  useRedirect('loggedIn')
+  const [signUpData, setSignUpData] = useState({
+    username: '',
+    password1: '',
+    password2: '',
+  });
+
+  const { username, password1, password2 } = signUpData;
+
+  const [errors, setErrors] = useState({});
+
+  const setCurrentUser = useSetCurrentUser();
+
+  const history = useHistory();
+
+  const handleChange = (event) => {
+    setSignUpData({
+      ...signUpData,
+      [event.target.name]: event.target.value,
     });
-    
-    const { username, password1, password2 } = signUpData;
+  };
 
-    const [errors, setErrors] = useState({});
-    
-    const history = useHistory();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await axios.post('/dj-rest-auth/registration/', signUpData);
+      history.push('/signin');
 
-    const handleChange = (event) => {
-        setSignUpData({
-            ...signUpData,
-            [event.target.name]: event.target.value,
-        });
-    };
+      // Login immediately after registration
+      const loginData = {
+        username: signUpData.username,
+        password: signUpData.password1,
+      };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        try {
-            await axios.post('/dj-rest-auth/registration/', signUpData);
-            history.push('/signin');
+      const { data } = await axios.post("/dj-rest-auth/login/", loginData);
 
-            const loginData = {
-              username: signUpData.username,
-              password: signUpData.password1
-            };
+      // Update currentUser state to show logged-in icons and other user-specific data
+      setCurrentUser(data.user);
 
-            await axios.post('/dj-rest-auth/login/', loginData);
-            history.push('/')
-        } catch (err) {
-            setErrors(err.response?.data);
-        };
-    };
+      // Redirect to home page
+      history.push("/");
+    } catch (err) {
+      setErrors(err.response?.data);
+    }
+  };
 
   return (
     <Row className={styles.Row}>
@@ -62,43 +71,43 @@ const SignUpForm = () => {
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}><em>SIGN UP</em></h1>
 
-        <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
-                <Form.Label className="d-none">username</Form.Label>
-                <Form.Control className={styles.Input} type="text" placeholder="Username" name="username" 
-                value={username} onChange={handleChange}/>
+              <Form.Label className="d-none">username</Form.Label>
+              <Form.Control className={styles.Input} type="text" placeholder="Username" name="username"
+                value={username} onChange={handleChange} />
             </Form.Group>
             {errors.username?.map((message, idx) => (
-            <Alert variant="warning" key={idx}>{message}</Alert>
+              <Alert variant="warning" key={idx}>{message}</Alert>
             ))}
 
             <Form.Group controlId="password1">
-                <Form.Label className="d-none">Password</Form.Label>
-                <Form.Control className={styles.Input} type="password" placeholder="Password" name="password1"
-                value={password1} onChange={handleChange}/>
+              <Form.Label className="d-none">Password</Form.Label>
+              <Form.Control className={styles.Input} type="password" placeholder="Password" name="password1"
+                value={password1} onChange={handleChange} />
             </Form.Group>
             {errors.password1?.map((message, idx) => (
-            <Alert key={idx} variant="warning" >{message}</Alert>
+              <Alert key={idx} variant="warning" >{message}</Alert>
             ))}
-            
+
             <Form.Group controlId="password2">
-                <Form.Label className="d-none">Confirm password</Form.Label>
-                <Form.Control className={styles.Input} type="password" placeholder="Password" name="password2"
-                value={password2} onChange={handleChange}/>
+              <Form.Label className="d-none">Confirm password</Form.Label>
+              <Form.Control className={styles.Input} type="password" placeholder="Password" name="password2"
+                value={password2} onChange={handleChange} />
             </Form.Group>
             {errors.password2?.map((message, idx) => (
-            <Alert key={idx} variant="warning">{message}</Alert>
+              <Alert key={idx} variant="warning">{message}</Alert>
             ))}
 
             <Button className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`} type="submit">
-                Sign up!
+              Sign up!
             </Button>
             {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">
                 {message}
               </Alert>
             ))}
-        </Form>
+          </Form>
 
         </Container>
         <Container className={`mt-3 ${appStyles.Content}`}>
