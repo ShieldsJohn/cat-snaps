@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { axiosReq } from '../../api/axiosDefaults';
 import styles from "../../styles/ContactForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
+
 const ContactForm = () => {
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,7 +32,7 @@ const ContactForm = () => {
     event.preventDefault();
     // Redirect to the login page if not authenticated
     if (!currentUser) {
-      history.push('/signin'); 
+      history.push('/signin');
       return;
     }
 
@@ -52,10 +54,20 @@ const ContactForm = () => {
     }
   };
 
-    // Handle cancel button click
-    const handleCancel = () => {
-      history.push('/');
-    };
+  // Handle cancel button click
+  const handleCancel = () => {
+    history.push('/');
+  };
+
+  // Check if currentUser is loading and display a loading state while fetching user data
+  if (currentUser === undefined) {
+    return <div>Loading...</div>;
+  }
+
+  // Redirect to home page if the user is not authenticated
+  if (!currentUser) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <div className={styles.container}>
