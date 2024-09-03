@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Cat Snaps
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Cat Snaps is a social media application for cat lovers and can be found [here](https://cat-snaps-25d053ae1bdb.herokuapp.com)
 
-## Available Scripts
+(add responsive image here)
 
-In the project directory, you can run:
+## Objective
 
-### `npm start`
+The objective of this project is to provide a social media app where users can come together to share their love of cats.  Users can either sign up to share their own cat photos or to view other users' photos and interact with them.  The app provides the features you would expect of a social media app - to share photos, like and comment on them, follow users and be followed.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## User Experience (UX)
 
-### `npm test`
+### User Goals
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- To share cute cat photos and brighten up your followers' day.
+- To connect with other users, either by interacting with posts or with users directly through following and commenting.
+- To have a feeds of favourite posts and posts of followed users.
+- To learn about cat breeds and their quirky differences.
+- To enjoy using an intuitive and engaging app.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### User Stories
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Wireframs
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Design
 
-### `npm run eject`
+## Project Management
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### API
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Kanban
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Features
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Future Features
 
-## Learn More
+## Testing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Manual
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Code Validation
 
-### Code Splitting
+### Bugs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Technologies
 
-### Analyzing the Bundle Size
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Media
 
-### Making a Progressive Web App
+## Credits
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
