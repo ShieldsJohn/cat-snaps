@@ -90,7 +90,7 @@ In keeping with the cute theme, I searched Google Fonts for something that would
 
 ### Icons
 
-Icons were obtained from Font Awesome (INSERT LINK).  I chose familiar social media and navbar icons to ensure an intuitive user interface (UI).  I also used a cat icon to accompany the app title in the navbar.
+Icons were obtained from [Font Awesome](https://fontawesome.com).  I chose familiar social media and navbar icons to ensure an intuitive user interface (UI).  I also used a cat icon to accompany the app title in the navbar.
 
 ![cat icon](src/assets/readme_images/cat_icon.png) ![sign up icon](src/assets/readme_images/sign_up_icon.png) ![sign in out icon](src/assets/readme_images/sign_out_icon.png) 
 ![contact icon](src/assets/readme_images/contact_icon.png) ![feed icon](src/assets/readme_images/feed_icon.png) ![add_post icon](src/assets/readme_images/add_post_icon.png)
