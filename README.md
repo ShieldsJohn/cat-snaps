@@ -8,6 +8,25 @@ Cat Snaps is a social media application for cat lovers and can be found [here](h
 
 The objective of this project is to provide a social media app where users can come together to share their love of cats.  Users can either sign up to share their own cat photos or to view other users' photos and interact with them.  The app provides the features you would expect of a social media app - to share photos, like and comment on them, follow users and be followed.
 
+## Project Management
+
+This app was planned using Agile methodology and MoSCoW prioritisation on GitHub Projects.
+
+I created Epics for each feature and broke this down into Sprints, driven by User Stories (as detailed below). Each User story/feature was prioritised as either Must have, Should have, Could have or Won't have. Each task was moved through the kanban as the tasks progressed from To Do, In Progress, to Done.
+
+The Epics can be found [here](https://github.com/ShieldsJohn/cat-snaps/milestones?direction=asc&sort=title&state=open) and the kanban found [here](https://github.com/users/ShieldsJohn/projects/5/views/1).
+
+![epics](src/assets/readme_images/milestone.png)
+
+![kanban](src/assets/readme_images/kanban.png)
+
+
+
+### API
+
+The back-end functionality of this app is handled by a django rest framework API, designed specifically for this app.  The repository for this can be found [here](https://github.com/ShieldsJohn/drf_ap)
+
+
 
 ## User Experience (UX)
 
@@ -97,11 +116,7 @@ Icons were obtained from [Font Awesome](https://fontawesome.com).  I chose famil
 ![likes icon](src/assets/readme_images/cat_icon.png) ![funny icon](src/assets/readme_images/funny_icon.png) ![cute icon](src/assets/readme_images/cute_icon.png)
 ![celebrate icon](src/assets/readme_images/celebrate_icon.png) ![sad icon](src/assets/readme_images/sad_icon.png) ![comment icon](src/assets/readme_images/comment_icon.png)
 
-## Project Management
 
-### API
-
-### Kanban
 
 ## Features
 
