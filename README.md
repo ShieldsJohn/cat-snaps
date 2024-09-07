@@ -62,7 +62,7 @@ The following are user stories for each of the app features.
 
 ## Design
 
-Being a mobile-first responsively designed app, I started with how this app would be optimised for mobile devices.  This dictated the components that would be included and the presentation of them from mobile through to desktop.  For example, the verticle, sequential layout of components for mobile, expanding out to a horizontally as appropriate for larger screen sizes.  Component elements such as the number of profiles shown in Recommended Profiles, for example, there are four shown on mobile and ten shown on laptops and desktops (although not depicted below due to wireframe limitations).  Responsive design is about ensuring an optimised user experience, no matter the device they are using.
+Being a mobile-first responsively designed app, I started with how this app would be optimised for mobile devices.  This dictated the components that would be included and the presentation of them from mobile through to desktop.  For example, the verticle, sequential layout of components for mobile, expanding out horizontally as appropriate for larger screen sizes.  Component elements such as the number of profiles shown in Recommended Profiles, for example, there are four shown on mobile and ten shown on laptops and desktops (although not depicted below due to wireframe limitations).  Responsive design is about ensuring an optimised user experience, no matter the device they are using.
 
 Some of the features have changed since first conception.
 
@@ -78,18 +78,24 @@ To add to the cuteness, I also wanted a Japanese kawaii-style (INSERT KAWAII LIN
 
 ![cat background image](src/assets/wallpaper1.webp)
 
+
 ### Font
 
 In keeping with the cute theme, I searched Google Fonts for something that would enhance the theme.  I settled on Josefin Sans for it's rounded letters which I felt complemented the rounded components, avatars and background image.
 
-(INSERT FONT EXAMPLE IMAGE)
-(INSERTS VIEW OF HOMEPAGE WITH THE ABOVE MENTIONED ELEMENTS WORKING TOGETHER)
+![font](src/assets/readme_images/font.png)
+
+![home page](src/assets/readme_images/home_page.png)
+
 
 ### Icons
 
-Icons were obtained from Font Awesome (INSERT LINK).  I chose generic, familiar social media and navbar icons to ensure an intuitive user interface (UI).  I also used a cat icon to accompany the app title in the navbar.
+Icons were obtained from [Font Awesome](https://fontawesome.com).  I chose familiar social media and navbar icons to ensure an intuitive user interface (UI).  I also used a cat icon to accompany the app title in the navbar.
 
-(INSERT ICONS)
+![cat icon](src/assets/readme_images/cat_icon.png) ![sign up icon](src/assets/readme_images/sign_up_icon.png) ![sign in out icon](src/assets/readme_images/sign_out_icon.png) 
+![contact icon](src/assets/readme_images/contact_icon.png) ![feed icon](src/assets/readme_images/feed_icon.png) ![add_post icon](src/assets/readme_images/add_post_icon.png)
+![likes icon](src/assets/readme_images/cat_icon.png) ![funny icon](src/assets/readme_images/funny_icon.png) ![cute icon](src/assets/readme_images/cute_icon.png)
+![celebrate icon](src/assets/readme_images/celebrate_icon.png) ![sad icon](src/assets/readme_images/sad_icon.png) ![comment icon](src/assets/readme_images/comment_icon.png)
 
 ## Project Management
 
