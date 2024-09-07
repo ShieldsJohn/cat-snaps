@@ -295,11 +295,88 @@ Upon successful submition of the form, the user will be presented with a modal c
 
 ## Testing
 
-### Manual
+### Manual Testing
+
+The manual testing below has been carried out to test the features of this app, the functionality of the API and the user experience.
+
+![test case 1](src/assets/readme_images/tc1_homepage_nsiu.png)
+
+![test case 2](src/assets/readme_images/tc2_signup.png)
+
+![test case 3](src/assets/readme_images/tc3_signin.png)
+
+![test case 4](src/assets/readme_images/tc4_homepage_siu.png)
+
+![test case 5](src/assets/readme_images/tc5_contact.png)
+
+![test case 6](src/assets/readme_images/tc6_addpost.png)
+
+![test case 7](src/assets/readme_images/tc7_feed.png)
+
+![test case 8](src/assets/readme_images/tc8_likes.png)
+
+![test case 9](src/assets/readme_images/tc9_signout.png)
+
+![test case 10](src/assets/readme_images/tc10_profile.png)
+
+![test case 11](src/assets/readme_images/t11_viewpost.png)
+
+![test case 12](src/assets/readme_images/tc12_mostfollowed.png)
+
+![test case 13](src/assets/readme_images/tc13_search.png)
+
+
+By carrying out the above testing, I can confirm the app and API are working as expected.
+
 
 ### Code Validation
 
+Eslint was used to validate all .jsx files.  Initially there were around 200 errors mostly relating to props validation and apostrophes to be formatted.  This was simple enough to rectify and as a result, all .jsx files are validated, as below.
+
+![eslint errors](src/assets/readme_images/eslint_errors.png)
+
+![eslint validated](src/assets/readme_images/eslint_no_errors.png)
+
+
+W3C CSS validator was used to validate all CSS files.  All files passed, an example screenshot below.
+
+![css validated](src/assets/readme_images/css_validation.png)
+
+
+### Accessibility
+
+I used Chrome DevTools Lighthouse to test the accessibility of the app.  It achieves a good score of 95, as below.
+
+![accessibility](src/assets/readme_images/accessibility.png)
+
+
+### Responsiveness
+
+All pages were tested to ensure responsiveness on screen sizes => 320px, by using Chrome's DevTools responsive dimensions.  All pages behaved as expected.
+
+I also tested with an iPhone 14, using both Brave and Safari browsers.  Again, all pages behaved as expected.
+
+
 ### Bugs
+
+There were bugs during development which were mostly resolved.  The main outstanding issue is with the profile avatar of the signed in user not being visible on tablet dimensions.  I tried various different settings with the React-Bootstrap layout classes and CSS but the best I could do was have the 'Profile' title there to show the user where to click.
+
+The resolved bugs are as follows:
+
+Deployment issue
+- Issue:
+Previous deployments were successful, then I started getting this error in Heroku; '[BABEL] /usr/src/app/src/index.js: Cannot find module '@babel/plugin-proposal-private-property-in-object'. Despite the deployment completing successfully.
+
+- Solution:
+I searched online for a solution and found that if I moved "@babel/plugin-proposal-private-property-in-object": "^7.21.11" from devDepencies in package.json to Dependencies, this resolved the issue.
+
+Signed in users after sign up
+
+- Issue:
+I created the functionality for users to be automatically signed in after successful sign up. However, during testing I found the new user did not have the 'logged in' icons available in the navbar, unless they manually refreshed the browser.
+
+- Solution:
+This issue was due to the currentUser state in SignUpForm.js not being updated immediately after the automatic sign in. So I imported useSetCurrentUser from CurrentUserContext to call setCurrentUser(data.user) to update the state with the logged in user's data.
 
 ## Technologies
 
