@@ -117,8 +117,36 @@ Icons were obtained from [Font Awesome](https://fontawesome.com).  I chose famil
 ![celebrate icon](src/assets/readme_images/celebrate_icon.png) ![sad icon](src/assets/readme_images/sad_icon.png) ![comment icon](src/assets/readme_images/comment_icon.png)
 
 
-
 ## Features
+
+### Navigation
+
+The navbar is visible throughout the app, offering constant access to its features.  It is also responsive and optimised for all devices.  The features availble to the user will depend on if they are signed in or not.  A non-signed in user can still view parts of the app, so as to entice them to sign up, howwever they cannot interact with most features until they sign up and/or sign in.
+
+Below are screenshots of the navbar and it's features for both signed in and signed out status.
+
+![signedout_mobile](src/assets/readme_images/navbar_signedout_mobile.png)
+
+![signedout_large](src/assets/readme_images/navbar_signedout_large.png) 
+
+![signedin_mobile](src/assets/readme_images/navbar_signedin_mobile.png)
+
+![signedin_large](src/assets/readme_images/navbar_signedin_large.png)
+
+
+### Authentication
+
+### Home page
+
+### Posts
+
+### Comments
+
+### Profiles
+
+### Follow
+
+###Contact
 
 ### Future Features
 
