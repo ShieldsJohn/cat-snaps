@@ -121,13 +121,17 @@ Icons were obtained from [Font Awesome](https://fontawesome.com).  I chose famil
 
 ### Navigation
 
-The navbar is visible throughout the app, offering constant access to its features.  It is also responsive and optimised for all devices.  The features availble to the user will depend on if they are signed in or not.  A non-signed in user can still view parts of the app, so as to entice them to sign up, howwever they cannot interact with most features until they sign up and/or sign in.
+The navbar is visible throughout the app, offering constant access to its features.  It is also responsive and optimised for all devices.  The features availble to the user will depend on if they are signed in or not.  A non-signed in user can still view parts of the app, so as to entice them to sign up, however they cannot interact with most features until they sign up and/or sign in.
 
 Below are screenshots of the navbar and it's features for both signed in and signed out status.
+
+- Signed out
 
 ![signedout_mobile](src/assets/readme_images/navbar_signedout_mobile.png)
 
 ![signedout_large](src/assets/readme_images/navbar_signedout_large.png) 
+
+- Signed in
 
 ![signedin_mobile](src/assets/readme_images/navbar_signedin_mobile.png)
 
@@ -135,6 +139,11 @@ Below are screenshots of the navbar and it's features for both signed in and sig
 
 
 ### Authentication
+
+As mentioned, new users to the app can sign up.  Doing so will create user and profile records in the API database and allow full functionality to the front-end features.  A sign up form has been provided to allow the users to do this, as shown below.
+
+![sign up_mobile](src/assets/readme_images/signup_mobile.png)
+
 
 ### Home page
 
