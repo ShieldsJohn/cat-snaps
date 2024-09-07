@@ -356,6 +356,8 @@ All pages were tested to ensure responsiveness on screen sizes => 320px, by usin
 
 I also tested with an iPhone 14, using both Brave and Safari browsers.  Again, all pages behaved as expected.
 
+I also used www.amiresponsive.com to generate the responsive image and everything was fine on that too.
+
 
 ### Bugs
 
@@ -380,7 +382,59 @@ This issue was due to the currentUser state in SignUpForm.js not being updated i
 
 ## Technologies
 
+### Languages
+
+- HTML
+- CSS
+- JavaScript
+
+### Frameworks and other
+
+- React.js
+- React-Bootstrap
+- Github
+- GitPod
+- Heroku
+- Google Chrome DevTools
+- Lighthouse
+- Cloudinary 
+- Balsamiq 
+- Eslint 
+- W3C CSS Validation 
+
+
 ## Deployment
+
+This app is deployed and hosted on Heroku. I followed these steps during deployment.
+
+- Select Create new app add unique title and select your region. Selecy Create App.
+- Select Settings tab and apply the relevant config VARs
+- Select Deploy tab and select Github
+- Search for the repository title from the GitHub account
+- Select Connect
+- Manually Deploy Main Branch
+- Upon successful deployment, select Open App to view deployed app.
+  
+To connect the app to the API:
+
+- Go to the API application settings, in the Heroku dashboard.
+- In Settings add a new Config Var called CLIENT_ORIGIN and set that to the URL for the deployed React application.
+- Add another Config Var called 'CLIENT_ORIGIN_DEV' and enter the URL of the Gitpod preview link, remembering to remove the trailing slash at the end. Gitpod occasionally changes this URL so keep an eye on it, as you are working on your project.
+- Go back to your front-end Gitpod workspace and install the Axios library using the command 'npm install axios'.
+- Create a folder called API and inside it create a file called 'axiosDefaults'.
+- Import axios at the top of the file and define your baseURL which is the unique URL of your deployed API project. 
+- Set the content-type header to multi-part/form-data as the API will need to deal with images as well as text in its requests.
+- In order to avoid any CORS issues, set withCredentials to True.
+- Import this file into App.js to be used across all pages
+
+Forking the repository in GitHub
+
+To make a unique copy of a GitHub repository by forking, follow these steps:
+
+- Log in to GitHub
+- Locate the repository to be forked
+- Find the Fork button at the top right-hand side of the page
+- Click on the button to create a copy of the original repository
 
 ## Media
 
