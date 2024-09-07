@@ -140,22 +140,94 @@ Below are screenshots of the navbar and it's features for both signed in and sig
 
 ### Authentication
 
+Sign up
+
 As mentioned, new users to the app can sign up.  Doing so will create user and profile records in the API database and allow full functionality to the front-end features.  A sign up form has been provided to allow the users to do this, as shown below.
 
 ![sign up_mobile](src/assets/readme_images/signup_mobile.png)
 
+![sign up_large](src/assets/readme_images/signup_large.png) 
+
+Sign in
+
+If a user has previously signed up, they can sign in via a form, found by selecting Sign in, in the navbar.
+
+![sign in_mobile](src/assets/readme_images/signin_mobile.png)
+
+![sign in_large](src/assets/readme_images/signin_large.png)
+
+Sign out
+
+A signed in user can sign out via a similar form, found by selecting Sign out, in the navbar.
+
 
 ### Home page
 
-### Posts
+The home page consists of the following components:
 
-### Comments
+- Most Followed Users
+
+This component features across the app. It appears at the top of all pages. It uses a filter to order all site users by followers count from highest to lowest. The users with the highest follower count are the most popular profiles and the top ten are displayed on larger screens, with four displayed on mobile devices.
+
+If the user is not signed in, they can see avatars and usernames of the top ten most popular profiles.  If the user is signed in on a laptop or larger device, they will also see buttons enabling them to follow or unfollow those profiles.
+
+![most followed_mobile](src/assets/readme_images/mfu_mobile.png)
+
+![most followed_large](src/assets/readme_images/mfu_large.png)
+
+
+
+- New Users
+
+This component also features across the app, sitting below the Most Followed Users component.  This also uses a filter to order users by the date they created their profile, with the latest five (four on mobile) users being displayed in the compoment.
+
+Similarly follow/unfollow buttons appear on larger devices.
+
+![new users_mobile](src/assets/readme_images/nu_mobile.png)
+
+![new users_large](src/assets/readme_images/nu_large.png)
+
+
+- Posts
+
+When a signed in user creates a post, it is displayed in the main feed on the home page showing the user's name and avatar, the date it was posted, the image, title and caption, reactions and comments.  The user will also be able to edit or delete their post from a dropdown menu on each post.
+
+Users viewing posts by other users can react to the posts, by clicking on one of the reaction icons.  This will change colour to confirm their selection and the count will increase.  The user can also deselect their reaction, so long as it's before their token expires.  When they do this, they will see the reaction count reduce.
+
+![post_mobile](src/assets/readme_images/post_mobile.png)
+
+![post_large](src/assets/readme_images/post_large.png)
+
+Users can also select the comment icon to leave a comment on the post.  This will open a comment field and once the comment is submitted, it will be displayed with the username, avatar and how long ago the comment was posted.  If the user wants to edit or delete the comment, they can do so via the dropdown menu on their comment.  This option will not be available for comments that do not belong to the user.
+
+![comment_mobile](src/assets/readme_images/comment_mobile.png)
+
+![comment_large](src/assets/readme_images/comment_large.png)
+
+
+- Search
+
+Users can use the search bar to search for keywords.  The relevant feed will be filtered by the results found in usernames, post titles and captions.
+
+![search_mobile](src/assets/readme_images/search_mobile.png)
+
+![search_large](src/assets/readme_images/search_large.png)
+
+
+- Feed
+
+The Feed page found in the navbar is identical to the home page.  However, this returns the posts of users that the signed in user is following.  If the user is not following anyone, the below message will be displayed.
+
+![feed not following_mobile](src/assets/readme_images/feed_notfollowing_mobile.png)
+
+![feed not following_large](src/assets/readme_images/feed_notfollowing_large.png)
+
 
 ### Profiles
 
 ### Follow
 
-###Contact
+### Contact
 
 ### Future Features
 
