@@ -7,6 +7,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import styles from "../../styles/CommentCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
+import PropTypes from 'prop-types';
 
 function CommentCreateForm(props) {
   const { post, setPost, setComments, profileImage, profile_id } = props;
@@ -68,5 +69,13 @@ function CommentCreateForm(props) {
     </Form>
   );
 }
+
+CommentCreateForm.propTypes = {
+  post: PropTypes.object.isRequired,
+  setPost: PropTypes.func.isRequired,
+  setComments: PropTypes.func.isRequired,
+  profileImage: PropTypes.string.isRequired,
+  profile_id: PropTypes.number.isRequired,
+};
 
 export default CommentCreateForm;

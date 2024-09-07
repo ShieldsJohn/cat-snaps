@@ -4,6 +4,7 @@ import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
 import { useProfileData } from "../../contexts/ProfileDataContext";
 import Profile from "./Profile";
+import PropTypes from "prop-types";
 
 const PopularProfiles = ({ mobile }) => {
   const { popularProfiles } = useProfileData();
@@ -34,6 +35,10 @@ const PopularProfiles = ({ mobile }) => {
       )}
     </Container>
   );
+};
+
+PopularProfiles.propTypes = {
+  mobile: PropTypes.bool
 };
 
 export default PopularProfiles;

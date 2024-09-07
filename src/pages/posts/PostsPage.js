@@ -17,6 +17,7 @@ import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import NewProfiles from "../profiles/NewProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import PropTypes from "prop-types";
 
 
 function PostsPage({ message, filter = "" }) {
@@ -48,6 +49,7 @@ function PostsPage({ message, filter = "" }) {
     };
   }, [filter, query, pathname, currentUser]);
 
+
   return (
     <Row className="h-100">
       {/* Main content area */}
@@ -72,14 +74,15 @@ function PostsPage({ message, filter = "" }) {
           <>
             {posts.results.length ? (
               <InfiniteScroll
-                children={posts.results.map((post) => (
-                  <Post key={post.id} {...post} setPosts={setPosts} />
-                ))}
                 dataLength={posts.results.length}
                 loader={<Asset spinner />}
                 hasMore={!!posts.next}
                 next={() => fetchMoreData(posts, setPosts)}
-              />
+              >
+                {posts.results.map((post) => (
+                  <Post key={post.id} {...post} setPosts={setPosts} />
+                ))}
+              </InfiniteScroll>
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
@@ -101,5 +104,10 @@ function PostsPage({ message, filter = "" }) {
     </Row>
   );
 }
+
+PostsPage.propTypes = {
+  message: PropTypes.string.isRequired,
+  filter: PropTypes.string
+};
 
 export default PostsPage;

@@ -12,6 +12,7 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import PropTypes from 'prop-types';
 
 const Post = (props) => {
   const {
@@ -121,7 +122,7 @@ const Post = (props) => {
           {is_owner ? (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't react to your own posts!</Tooltip>}
+              overlay={<Tooltip>You can&apos;t react to your own posts!</Tooltip>}
             >
               <i className="fa-regular fa-thumbs-up" />
             </OverlayTrigger>
@@ -146,7 +147,7 @@ const Post = (props) => {
           {is_owner ? (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't react to your own posts!</Tooltip>}
+              overlay={<Tooltip>You can&apos;t react to your own posts!</Tooltip>}
             >
               <i className="fa-regular fa-face-grin-squint-tears" />
             </OverlayTrigger>
@@ -171,7 +172,7 @@ const Post = (props) => {
           {is_owner ? (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't react to your own posts!</Tooltip>}
+              overlay={<Tooltip>You can&apos;t react to your own posts!</Tooltip>}
             >
               <i className="fa-regular fa-face-frown-open" />
             </OverlayTrigger>
@@ -196,7 +197,7 @@ const Post = (props) => {
           {is_owner ? (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't react to your own posts!</Tooltip>}
+              overlay={<Tooltip>You can&apos;t react to your own posts!</Tooltip>}
             >
               <i className="far fa-grin-hearts" />
             </OverlayTrigger>
@@ -221,7 +222,7 @@ const Post = (props) => {
           {is_owner ? (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't react to your own posts!</Tooltip>}
+              overlay={<Tooltip>You can&apos;t react to your own posts!</Tooltip>}
             >
               <i className="fa-solid fa-hands-clapping" />
             </OverlayTrigger>
@@ -251,6 +252,30 @@ const Post = (props) => {
       </Card.Body>
     </Card>
   );
+};
+
+Post.propTypes = {
+  id: PropTypes.number.isRequired,
+  owner: PropTypes.string.isRequired,
+  profile_id: PropTypes.number.isRequired,
+  profile_image: PropTypes.string.isRequired,
+  comments_count: PropTypes.number.isRequired,
+  like_count: PropTypes.number.isRequired,
+  title: PropTypes.string,
+  caption: PropTypes.string,
+  image: PropTypes.string.isRequired,
+  updated_at: PropTypes.string.isRequired,
+  funny_count: PropTypes.number.isRequired,
+  sad_count: PropTypes.number.isRequired,
+  cute_count: PropTypes.number.isRequired,
+  celebrate_count: PropTypes.number.isRequired,
+  postPage: PropTypes.bool,
+  setPosts: PropTypes.func.isRequired,
+  like_Reaction_id: PropTypes.number,
+  funny_Reaction_id: PropTypes.number,
+  sad_Reaction_id: PropTypes.number,
+  cute_Reaction_id: PropTypes.number,
+  celebrate_Reaction_id: PropTypes.number,
 };
 
 export default Post;

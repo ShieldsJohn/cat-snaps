@@ -8,6 +8,7 @@ import CommentEditForm from "./CommentEditForm";
 import styles from "../../styles/Comment.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
+import PropTypes from 'prop-types';
 
 const Comment = (props) => {
   const {
@@ -76,6 +77,17 @@ const Comment = (props) => {
       </Media>
     </>
   );
+};
+
+Comment.propTypes = {
+  profile_id: PropTypes.number.isRequired,
+  profile_image: PropTypes.string.isRequired,
+  owner: PropTypes.string.isRequired,
+  updated_at: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  setPost: PropTypes.func.isRequired,
+  setComments: PropTypes.func.isRequired,
 };
 
 export default Comment;

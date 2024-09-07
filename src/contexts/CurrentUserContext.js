@@ -3,6 +3,7 @@ import axios from "axios";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useHistory } from "react-router";
 import { removeTokenTimestamp, shouldRefreshToken } from "../utils/utils";
+import PropTypes from 'prop-types';
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -80,4 +81,8 @@ export const CurrentUserProvider = ({ children }) => {
       </SetCurrentUserContext.Provider>
     </CurrentUserContext.Provider>
   );
+};
+
+CurrentUserProvider.propTypes = {
+  children: PropTypes.node.isRequired
 };
