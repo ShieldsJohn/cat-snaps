@@ -160,6 +160,8 @@ Sign out
 
 A signed in user can sign out via a similar form, found by selecting Sign out, in the navbar.
 
+Input validation is in place for each of the above forms.  For example, the user must complete each fields and provide a password that meets the requirements.  If not, messages will advise the user what is required.
+
 
 ### Home page
 
@@ -186,6 +188,15 @@ Similarly follow/unfollow buttons appear on larger devices.
 ![new users_mobile](src/assets/readme_images/nu_mobile.png)
 
 ![new users_large](src/assets/readme_images/nu_large.png)
+
+
+- Add posts
+
+When a user selects the Add post icon from the navbar, they are taken to the below form.  This form provides an image upload and fields to give the post a title and caption.  When the user selects Create, they are redirected to their new post.  If they select cancel, they are redirected to the home page.
+
+![add post_mobile](src/assets/readme_images/add_post_mobile.png)
+
+![add post_large](src/assets/readme_images/add_post_large.png)
 
 
 - Posts
@@ -223,13 +234,64 @@ The Feed page found in the navbar is identical to the home page.  However, this 
 ![feed not following_large](src/assets/readme_images/feed_notfollowing_large.png)
 
 
+- Likes
+
+The Likes page found in the navbar is identical to the home page.  However, this returns posts where the user has selected like.  If the user has not liked any posts, a similar message to the one above will be displayed.
+
+
 ### Profiles
 
-### Follow
+Profile avatars throughout the app, whether in the Most Followed Users or New Users components, or next to comments can be selected to view the full profile page of that user. Signed in users can also access their own profile page from their avatar in the navbar.
+
+When a user signs up, a standard profile is created with a username, password and default avatar image. Through the user's actions, the profile page will be updated with the following:
+
+- Number of posts
+- Number of profiles following
+- Number of followers
+
+The user can manually update the rest of their profile page info, such as, avatar, bio and their social media links.  This is done by selecting edit profile from the dropdown menu on their profile page.  A form is proivded for updating all these details together.  In the dropdown, there are also options for the user to change their username or password.
+
+When viewing other users profiles, there will also be a follow/unfollow button for the user's convenience.
+
+![profile_mobile](src/assets/readme_images/profile_mobile.png)
+
+![profile_large](src/assets/readme_images/profile_large.png)
+
 
 ### Contact
 
+A contact form is available for signed in users to access from the navbar.  As shown below, the required fields are:
+
+- Name
+- Email
+- Subject
+- Message
+
+If all the fields are not completed, the user will be advised to do so.
+
+Upon successful submition of the form, the user will be presented with a modal confirming.
+
+![contact_mobile](src/assets/readme_images/contact_mobile.png)
+
+![contact_large](src/assets/readme_images/contact_large.png)
+
+
+
 ### Future Features
+
+- Contact - to fully implement the contact feature to enable the sender to see their sent messages and delivered/read status and for the admin to reply.
+- Notifications - to notify users of any actions on their posts, new followers and responses from sent contact messages etc
+- Direct Messaging - to facilitate deeper social networking between users via a messaging feature.
+
+
+## Reusable React Components
+  
+- Asset.js - this displays a spinner wherever a page is loading a component. This has been reused in NotFound.js, PostCreateForm.js, PostPage.js, PostsPage.js, PopularProfiles.js, ProfilePage.js.
+
+- Avatar.js - this provides for handling the Avatar images.  It can be reused where users need to add avatars or images and has been reused in NavBar.js, Comment.js, CommentCreateForm.js, Post.js and Profile.js.
+
+- MoreDropDown.js - this displays an ellipsis, that expands a dropdown menu when selected.  This has been reused in Comment.js, Post.js and ProfilePage.js
+
 
 ## Testing
 
