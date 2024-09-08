@@ -388,17 +388,17 @@ This issue was due to the currentUser state in SignUpForm.js not being updated i
 
 ### Frameworks and other
 
-- React.js
-- React-Bootstrap
-- Github
-- GitPod
-- Heroku
-- Google Chrome DevTools
-- Lighthouse
-- Cloudinary 
-- Balsamiq 
-- Eslint 
-- W3C CSS Validation
+- React.js - a JavaScript library with a component-based architecture.  Popular for improving UI/UX.
+- React-Bootstrap - used for responsive, pre-built UI components to speed up development and ensure a mobile-friendly design.
+- Github - code repository and version control.
+- GitPod - cloud-based development environement.
+- Heroku - for deployment and hosting of app.
+- Google Chrome DevTools - used for checking responsiveness and debugging.
+- Lighthouse - used to audit accessibility.
+- Cloudinary - used for image storage.
+- Balsamiq - used to create wireframes.
+- Eslint  - used to validate js/jsx code and ensure coding standards are ad-hered to.
+- W3C CSS Validation - used to validate CSS code and ensure coding standards are ad-hered to.
 
 
 ### A special mention for React...
