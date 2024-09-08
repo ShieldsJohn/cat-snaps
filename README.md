@@ -317,7 +317,7 @@ The manual testing below has been carried out to test the features of this app, 
 
 ![test case 10](src/assets/readme_images/tc10_profile.png)
 
-![test case 11](src/assets/readme_images/t11_viewpost.png)
+![test case 11](src/assets/readme_images/tc11_viewpost.png)
 
 ![test case 12](src/assets/readme_images/tc12_mostfollowed.png)
 
