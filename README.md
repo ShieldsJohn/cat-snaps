@@ -16,7 +16,7 @@ I created Epics for each feature and broke this down into Sprints, driven by Use
 
 The Epics can be found [here](https://github.com/ShieldsJohn/cat-snaps/milestones?direction=asc&sort=title&state=open) and the kanban found [here](https://github.com/users/ShieldsJohn/projects/5/views/1).
 
-![epics](src/assets/readme_images/milestone.png)
+![epics](src/assets/readme_images/milestones.png)
 
 ![kanban](src/assets/readme_images/kanban.png)
 
@@ -25,7 +25,6 @@ The Epics can be found [here](https://github.com/ShieldsJohn/cat-snaps/milestone
 ### API
 
 The back-end functionality of this app is handled by a django rest framework API, designed specifically for this app.  The repository for this can be found [here](https://github.com/ShieldsJohn/drf_ap)
-
 
 
 ## User Experience (UX)
@@ -93,7 +92,7 @@ Part of the reason for choosing a cat themed app, was to create an app that was 
 
 ![coral colour sample](src/assets/readme_images/coral.png) ![green colour sample](src/assets/readme_images/green.png) ![blue colour sample](src/assets/readme_images/blue.png)
 
-To add to the cuteness, I also wanted a Japanese kawaii-style (INSERT KAWAII LINK) cat background.  I overlaid this with an opaque filter, to ensure it didn't visually interfere with the content.
+To add to the cuteness, I also wanted a Japanese [kawaii](https://en.wikipedia.org/wiki/Kawaii)-style cat background.  I overlaid this with an opaque filter, to ensure it didn't visually interfere with the content.
 
 ![cat background image](src/assets/wallpaper1.webp)
 
@@ -176,7 +175,6 @@ If the user is not signed in, they can see avatars and usernames of the top ten 
 ![most followed_mobile](src/assets/readme_images/mfu_mobile.png)
 
 ![most followed_large](src/assets/readme_images/mfu_large.png)
-
 
 
 - New Users
@@ -400,7 +398,16 @@ This issue was due to the currentUser state in SignUpForm.js not being updated i
 - Cloudinary 
 - Balsamiq 
 - Eslint 
-- W3C CSS Validation 
+- W3C CSS Validation
+
+
+### A special mention for React...
+
+Using components from React's library has enhanced the UX with the following features:
+
+- React Context - used to manage profile data, by passing props down a component tree without having to pass through every level.  By harnessing this, users can follow profiles, see Most Followed Profiles and interact with page content without excessive page reloads.
+- Infinite Scroll - this eliminated the requirement for pagination, allowing users to continously browse through posts without interruption.
+- React Icons - helped incorporate social media icons on profile pages, which creates instant recognition for users and encourages social networking of users beyond this app.  It is hoped this brings users closer together and contributes to achieving user goals.
 
 
 ## Deployment
@@ -427,7 +434,8 @@ To connect the app to the API:
 - In order to avoid any CORS issues, set withCredentials to True.
 - Import this file into App.js to be used across all pages
 
-Forking the repository in GitHub
+
+## Forking the repository in GitHub
 
 To make a unique copy of a GitHub repository by forking, follow these steps:
 
@@ -436,8 +444,15 @@ To make a unique copy of a GitHub repository by forking, follow these steps:
 - Find the Fork button at the top right-hand side of the page
 - Click on the button to create a copy of the original repository
 
-## Media
 
 ## Credits
 
-
+- As previously mentioned, this app is developed with reference to Code Institute's PP5 Moments walkthrough project.
+- I also utilised several React tutorials from [ProgrammingWithMosh](https://www.youtube.com/@programmingwithmosh).
+- The [React documentation](https://react.dev/learn), [React-Bootstrap documentation](https://react-bootstrap.netlify.app/) and [Eslint documentation](https://eslint.org/) were also invaluable.
+- Cat images are from [pexels.com](https://www.pexels.com).
+- Avatar images are from both [pexels.com](https://www.pexels.com) and Google Images.
+- Icons are from [Font Awesome](https://fontawesome.com).
+- The background image is from Google Images.
+- Colour scheme inspiration is from [venngage.com](https://venngage.com/blog/pastel-color-palettes).
+- I would also like to thank my fellow students on the PP5 Slack channel.
